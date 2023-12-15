@@ -16,7 +16,7 @@ jobs:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
           env: preview
-          ref: ${{ github.sha }}
+          ref: ${{ github.head_ref }}
 
       - name: Wait for Netlify deployment
         uses: jakepartusch/wait-for-netlify-action@v1.4
