@@ -17,11 +17,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           env: preview
 
-      - name: Get Netlify URL
-        uses: voorhoede/get-netlify-url@v2
-        id: get-netlify-url
+      - name: Wait for Netlify deployment
+        uses: jakepartusch/wait-for-netlify-action@v1.4
+        id: netlify
         with:
-          site-name: structuredthoughtsblog
+          site_name: visionary-wisp-31b1e2
 
       - name: Update deployment status
         uses: bobheadxi/deployments@v1
@@ -31,5 +31,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           status: ${{ job.status }}
           env: ${{ steps.deployment.outputs.env }}
-          env_url: ${{ steps.get-netlify-url.outputs.url }}
+          env_url: ${{ steps.netlify.outputs.url }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
