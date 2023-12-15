@@ -1,0 +1,16 @@
+.container {
+  margin: 20px auto;
+  max-width: 960px;
+}
+
+.hero-img {
+  padding: 10px;
+  border: 1px solid gray;
+  width: 100%;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
