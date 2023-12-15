@@ -21,7 +21,7 @@ jobs:
         uses: voorhoede/get-netlify-url@v2
         id: get-netlify-url
         with:
-          site-name: structuredthoughtsblog
+          site-name: visionary-wisp-31b1e2
 
       - name: Update deployment status
         uses: bobheadxi/deployments@v1
