@@ -18,20 +18,20 @@
     }
   }
 
-  onClick($("load-images"), function () {
-    $qsa(".c-img--ll").forEach(function (element) {
-      element.className = "c-img";
-    });
-
-    const s = document.createElement("script");
-    s.src =
-      "https://m.files.bbci.co.uk/modules/bbc-morph-lazysizes/0.2.1/bundle.js";
-    s.onload = function () {
-      M.modules["bbc-morph-lazysizes@0.2.1"].load();
-    };
-
-    document.body.appendChild(s);
+  // onClick($("load-images"), function () {
+  $qsa(".c-img--ll").forEach(function (element) {
+    element.className = "c-img";
   });
+
+  const s = document.createElement("script");
+  s.src =
+    "https://m.files.bbci.co.uk/modules/bbc-morph-lazysizes/0.2.1/bundle.js";
+  s.onload = function () {
+    M.modules["bbc-morph-lazysizes@0.2.1"].load();
+  };
+
+  document.body.appendChild(s);
+  // });
 
   onClick($("load-video"), function () {
     $("full-video").style.display = "block";

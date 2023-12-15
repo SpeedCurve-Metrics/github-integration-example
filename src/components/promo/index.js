@@ -7,12 +7,20 @@ const PromoMetadata = require("./metadata");
 class Promo extends React.Component {
   renderImage() {
     if (this.props.includeImage) {
+      if (this.props.image.href.indexOf("bbci.co.uk") > -1) {
+        return (
+          <PromoImage
+            {...this.props.image}
+            width={400}
+            delayed={this.props.delayedImage}
+          />
+        );
+      }
+
       return (
-        <PromoImage
-          {...this.props.image}
-          width={400}
-          delayed={this.props.delayedImage}
-        />
+        <div className="c-img">
+          <img src={this.props.image.href} alt={this.props.image.alt} />
+        </div>
       );
     }
 
