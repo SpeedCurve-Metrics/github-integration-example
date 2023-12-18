@@ -9,6 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      # Create a new GitHub deployment called "preview". Link it to the current
+      # PR by setting `ref` to `github.head_ref`.
       - name: Start deployment
         uses: bobheadxi/deployments@v1
         id: deployment
@@ -18,15 +20,17 @@ jobs:
           env: preview
           ref: ${{ github.head_ref }}
 
+      # Wait for the Netlify deployment to finish, and get the deployment URL.
       - name: Wait for Netlify deployment
         uses: jakepartusch/wait-for-netlify-action@v1.4
         id: netlify
         with:
           site_name: visionary-wisp-31b1e2
 
+      # Finish the GitHub deployment and set the environment URL to the
+      # deployment URL from the previous step.
       - name: Update deployment status
         uses: bobheadxi/deployments@v1
-        if: always()
         with:
           step: finish
           token: ${{ secrets.GITHUB_TOKEN }}
