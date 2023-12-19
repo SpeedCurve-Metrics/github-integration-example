@@ -21,6 +21,8 @@ jobs:
           ref: ${{ github.head_ref }}
 
       # Wait for the Netlify deployment to finish, and get the deployment URL.
+      # If you are using a platform other than Netlify, this is the step that
+      # you will need to replace.
       - name: Wait for Netlify deployment
         uses: jakepartusch/wait-for-netlify-action@v1.4
         id: netlify
